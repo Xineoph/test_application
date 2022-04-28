@@ -5,7 +5,7 @@ const weatherMapURL = "https://api.openweathermap.org/data/2.5/weather";
 
 class WeatherFetch {
   Future<dynamic> getWeatherByCoord(double lat, double lon) async {
-    FetchHelper fetchData = new FetchHelper(
+    FetchHelper fetchData =  FetchHelper(
         "$weatherMapURL?lat=$lat&lon=$lon&appid=$openWeatherMapKey&units=metric");
 
     var decodedData = await fetchData.getData(); //json
@@ -13,7 +13,7 @@ class WeatherFetch {
   }
 
   Future<dynamic> getWeatherByName(String cityName) async {
-    FetchHelper fetchData = new FetchHelper(
+    FetchHelper fetchData =  FetchHelper(
         "$weatherMapURL?q=$cityName&appid=$openWeatherMapKey&units=metric");
 
     var decodedData = await fetchData.getData();

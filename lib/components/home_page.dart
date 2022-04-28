@@ -12,13 +12,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final Geolocator _geolocator = Geolocator()..forceAndroidLocationManager;
-   Position _position;
-   String _city;
-   int _temp;
-   String _icon;
-   String _desc;
-   Color _color;
-  WeatherFetch _weatherFetch = new WeatherFetch();
+  Position _position;
+  String _city;
+  int _temp;
+  String _icon;
+  String _desc;
+  Color _color;
+  WeatherFetch _weatherFetch = WeatherFetch();
 
   @override
   void initState() {
@@ -59,12 +59,11 @@ class _HomePageState extends State<HomePage> {
                   Search(parentCallback: _changeCity),
                   Text(
                     _city,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'OpenSans'),
                   ),
-                  //Text(''),
                   if (_city != "")
                     WeatherCard(
                       title: _desc,
@@ -76,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    stops: [0, 1.0],
+                    stops: const [0, 1.0],
                     colors: [_color, Colors.white]))));
   }
 
@@ -89,9 +88,7 @@ class _HomePageState extends State<HomePage> {
       });
 
       _getCityAndWeatherFromLatLng();
-    }).catchError((e) {
-      print(e);
-    });
+    }).catchError((e) {});
   }
 
   _getCityAndWeatherFromLatLng() async {

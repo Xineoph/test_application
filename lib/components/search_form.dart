@@ -4,7 +4,7 @@ class Search extends StatefulWidget {
   final Function(String) parentCallback;
 
   const Search({
-     this.parentCallback,
+    this.parentCallback,
   }) : super();
 
   @override
@@ -22,13 +22,13 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(left: 20, top: 0, right: 20, bottom: 50),
-        padding: EdgeInsets.only(left: 20, top: 5, right: 5, bottom: 00),
+        margin: const EdgeInsets.only(left: 20, top: 0, right: 20, bottom: 50),
+        padding: const EdgeInsets.only(left: 20, top: 5, right: 5, bottom: 00),
         height: 50,
         width: 300,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(3),
               topRight: Radius.circular(3),
               bottomLeft: Radius.circular(3),
@@ -38,7 +38,7 @@ class _SearchState extends State<Search> {
               color: Colors.black.withOpacity(0.3),
               spreadRadius: 3,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -49,12 +49,12 @@ class _SearchState extends State<Search> {
               Expanded(
                   child: TextField(
                       controller: cityController,
-                      decoration:
-                          InputDecoration.collapsed(hintText: "Enter City"),
+                      decoration: const InputDecoration.collapsed(
+                          hintText: "Enter City"),
                       onSubmitted: (String city) =>
                           {widget.parentCallback(city)})),
               IconButton(
-                icon: new Icon(Icons.check),
+                icon: const Icon(Icons.check),
                 color: Colors.green,
                 onPressed: () {
                   widget.parentCallback(cityController.text);
